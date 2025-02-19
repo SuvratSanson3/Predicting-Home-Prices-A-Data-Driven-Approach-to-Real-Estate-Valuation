@@ -1,145 +1,98 @@
 House Price Prediction
 
-Project Overview
+📊 Project Workflow: House Price Prediction
 
-This project aims to predict house prices based on various features such as the number of bedrooms, bathrooms, living area, lot size, location, and other important factors. Using machine learning techniques, we have built a regression model to estimate the house price accurately. The project also includes a deployment file to allow users to interact with the trained model locally.
+1️⃣ Dataset Overview
 
-Dataset Information
+Dataset Size: Houses sold in 2016 with various attributes.
 
-The dataset consists of houses sold in 2016, with various attributes:
+Features:
 
-Id: Unique identifier
+Independent Variables: 'Bedrooms', 'Bathrooms', 'Living area', 'Lot area', 'Number of floors', 'Waterfront', 'Number of views', 'Condition', 'Grade', 'Area of the house', 'Area of Basement', 'Built year', 'Renovation year', 'Postal code', 'Living area after renovation', 'Lot area after renovation', 'Schools nearby', 'Distance from the airport'.
 
-Date: Date of sale
+Dependent Variable: 'Price' (House sale price).
 
-Price: Sale price (Target variable)
+2️⃣ Data Preprocessing
 
-Bedrooms: Number of bedrooms
+Descriptive Analysis:
 
-Bathrooms: Number of bathrooms
+Summarized the dataset to understand distributions and relationships.
 
-Living area: Square footage of the living space
+Data Cleaning:
 
-Lot area: Square footage of the lot
+Identified and removed missing or erroneous values.
 
-Number of floors: Total number of floors
+Outlier Treatment:
 
-Waterfront: Whether the house is on a waterfront (1: Yes, 0: No)
+Capped outliers using the Interquartile Range (IQR) method.
 
-Number of views: Special views count
+3️⃣ Regression Analysis Workflow
 
-Condition: House condition (1 to 5 scale)
+🔍 A. Assumptions Check for Linear Regression
 
-Grade: House grading (1 to 13 scale based on foundation, drainage, etc.)
+Verified key assumptions:
 
-Area of the house: Square footage excluding basement
+Linearity
 
-Area of Basement: Square footage of the basement
+Homoscedasticity
 
-Built year: Year the house was built
+Independence of errors
 
-Renovation year: Year of the latest renovation
+Normality of residuals
 
-Postal code: House location identifier
+Absence of multicollinearity (treated using Variance Inflation Factor).
 
-Living area after renovation: Living space after renovations
+📈 B. Linear Regression Model
 
-Lot area after renovation: Lot area after renovations
+Performance:
 
-Schools nearby: Number of schools in the vicinity
+R² (Train): 0.70
 
-Distance from the airport: Distance in kilometers from the nearest airport
+R² (Test): 0.68
 
-Project Workflow
+🔄 C. Regularization Techniques
 
-Data Preprocessing
+Ridge Regression:
 
-Handling missing values
+R² (Train): 0.72
 
-Feature engineering
+R² (Test): 0.70
 
-Encoding categorical variables
+Lasso Regression:
 
-Feature Selection
+R² (Train): 0.72
 
-Identifying significant features affecting house prices
+R² (Test): 0.70
 
-Model Selection & Training
+Elastic Net Regression:
 
-Implementing various regression models including:
+R² (Train): 0.71
 
-Linear Regression
+R² (Test): 0.69
 
-Decision Tree
+🛠 D. Hyperparameter Tuning
 
-Random Forest
+Performed grid search to optimize hyperparameters for Ridge, Lasso, and Elastic Net models.
 
-XGBoost
+🚀 E. Gradient Boosting Regression
 
-Hyperparameter tuning using GridSearchCV
+Fitted Gradient Boosting model for optimization.
 
-Final Model: Gradient Boosting Regressor with an R² score of 0.75
+Performance:
 
-Model Evaluation
+R² (Train): 0.76
 
-Metrics used:
+R² (Test): 0.75
 
-R-squared (R2 Score)
+4️⃣ Key Results
 
-Mean Absolute Error (MAE)
+Ridge, Lasso, and Elastic Net demonstrated similar performance with slight variations.
 
-Mean Squared Error (MSE)
+Gradient Boosting achieved the best performance with an R² score of 0.75 on the test set.
 
-Root Mean Squared Error (RMSE)
+5️⃣ Conclusion
 
-Technologies Used
+Regularized models (Ridge, Lasso, Elastic Net) achieved strong results, but Gradient Boosting Regressor provided the highest accuracy with an R² score of 0.75.
 
-Python
+The project provides insights into the factors influencing house prices and demonstrates the effectiveness of advanced regression techniques in predictive modeling.
 
-Libraries: NumPy, Pandas, Scikit-learn, XGBoost, Matplotlib, Seaborn, Statsmodels
-
-Machine Learning Algorithms: Linear Regression, Decision Tree, Random Forest, Gradient Boosting
-
-Deployment: Gradio for local UI-based interaction
-
-Model Deployment
-
-The deployment has been done using Gradio, which provides an interactive UI for users to input house details and get predicted prices.
-
-How to Run the Deployment Locally
-
-Ensure Python is installed along with the required libraries:
-
-pip install gradio pandas numpy scikit-learn xgboost pickle5
-
-Run the deployment script:
-
-python House_Price_Prediction_Deployment.ipynb
-
-Open the provided Gradio link in the browser and start predicting house prices.
-
-Results
-
-The final model was evaluated using various performance metrics, and the best model was selected based on the highest R-squared value and lowest error metrics. Gradient Boosting Regressor was chosen as the final model with an R² score of 0.75.
-
-Future Improvements
-
-Integration with cloud-based deployment platforms (e.g., Flask, FastAPI, or Streamlit for web apps)
-
-Including additional features such as crime rates, school ratings, and economic indicators
-
-Using deep learning approaches like ANN for improved performance
-
-How to Contribute
-
-Fork the repository
-
-Create a new branch (feature-branch)
-
-Make necessary changes and commit them
-
-Push to your branch and create a pull request
-
-Author & Acknowledgment
-
-Developed by Suvrat Sanson as part of a machine learning project on real estate price prediction.
